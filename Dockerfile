@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.21-bullseye AS builder
+FROM golang:1.21
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -o main .
+RUN go build -o main
 
 # Final stage
 FROM debian:bullseye-slim

@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+*.md
+.env
+.DS_Store
+.vscode
+.idea
+*.log
+Dockerfile
+.dockerignore
+fly.toml
+cyclic.json 
