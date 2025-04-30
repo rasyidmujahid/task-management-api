@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: task-management-api
+    env: docker
+    plan: free
+    region: singapore
+    buildCommand: docker build -t task-management .
+    startCommand: docker run -p $PORT:8080 task-management
+    envVars:
+      - key: PORT
+        value: 8080 
