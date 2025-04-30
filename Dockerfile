@@ -1,10 +1,10 @@
 # Build stage
-FROM golang:1.21-alpine AS builder
+FROM golang:1.21-bullseye AS builder
 
 WORKDIR /app
 
 # Copy go mod and sum files
-COPY go.mod ./
+COPY go.mod go.sum ./
 
 # Download dependencies
 RUN go mod download
@@ -16,9 +16,14 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -o main .
 
 # Final stage
-FROM alpine:latest
+FROM debian:bullseye-slim
 
 WORKDIR /app
+
+# Install ca-certificates for HTTPS
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy the binary from builder
 COPY --from=builder /app/main .

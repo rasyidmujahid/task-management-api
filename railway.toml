@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "go build -o main"
+buildCommand = "go mod download && go build -o main"
 
 [deploy]
 startCommand = "./main"
