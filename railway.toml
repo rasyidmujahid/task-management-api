@@ -4,7 +4,7 @@ name = "task-management-api"
 env = "go"
 plan = "free"
 region = "singapore"
-buildCommand = "go mod tidy && go build -o main"
+buildCommand = "chmod +x build.sh && ./build.sh"
 startCommand = "./main"
 
 [service.envVars]
