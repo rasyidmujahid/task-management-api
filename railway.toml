@@ -5,7 +5,8 @@ env = "go"
 plan = "free"
 region = "singapore"
 buildCommand = "chmod +x build.sh && ./build.sh"
-startCommand = "./main"
+startCommand = "cd /app && ./main"
+workingDirectory = "/app"
 
 [service.envVars]
 PORT = "8080"
