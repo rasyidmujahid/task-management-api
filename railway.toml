@@ -4,7 +4,7 @@ services:
     env: go
     plan: free
     region: singapore
-    buildCommand: go build -o main
+    buildCommand: go mod download && go build -o main
     startCommand: ./main
     envVars:
       - key: PORT

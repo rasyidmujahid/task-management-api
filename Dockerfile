@@ -3,14 +3,11 @@ FROM golang:1.21
 
 WORKDIR /app
 
-# Copy go mod and sum files
-COPY go.mod go.sum ./
+# Copy all files first
+COPY . .
 
 # Download dependencies
 RUN go mod download
-
-# Copy source code
-COPY . .
 
 # Build the application
 RUN go build -o main
