@@ -7,7 +7,5 @@ README.md
 .vscode
 .idea
 *.log
-Dockerfile
-.dockerignore
 fly.toml
 cyclic.json 
