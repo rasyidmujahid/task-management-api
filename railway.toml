@@ -1,10 +1,9 @@
 [service]
 type = "web"
 name = "task-management-api"
-env = "go"
+env = "docker"
 plan = "free"
 region = "singapore"
-startCommand = "go run main.go"
 
 [service.envVars]
 PORT = "8080" 
