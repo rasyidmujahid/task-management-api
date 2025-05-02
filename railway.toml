@@ -8,4 +8,7 @@ buildCommand = "go mod download && go build -o main"
 startCommand = "./main"
 
 [service.envVars]
-PORT = "8080" 
+PORT = "8080"
+
+[build]
+builder = "nixpacks" 

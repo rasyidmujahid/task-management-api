@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.21
+FROM golang:1.21-slim
 
 WORKDIR /app
 
@@ -7,10 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Download dependencies
-RUN go mod download
-
-# Build the application
-RUN go build -o main
+RUN go mod download && go build -o main
 
 # Final stage
 FROM debian:bullseye-slim
